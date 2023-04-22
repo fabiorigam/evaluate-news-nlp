@@ -8,4 +8,4 @@ function checkForUrl(url) {
     }
 }
 
-export {checkForUrl}
+export { checkForUrl }

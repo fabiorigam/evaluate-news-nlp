@@ -3,13 +3,18 @@ function handleSubmit(event) {
 
     // check what text was put into the form field
     let formText = document.getElementById('name').value
+    let CheckForName = Client.checkForName(formText)
 
     if (Client.checkForUrl(formText)) {
         console.log("::: Form Submitted :::")
 
         post('http://localhost:8080/api', {url: formText})
         .then(function(res) {
-            document.getElementById('results').innerHTML = "Polarity: "+checkPopularity(res.score_tag);
+            document.getElementById('polarity').innerHTML = 'Polarity: '+checkPopularity(res.score_tag);
+            document.getElementById("agreement").innerHTML = `Agreement: ${res.agreement}`;
+            document.getElementById("subjectivity").innerHTML = `Subjectivity: ${res.subjectivity}`;
+            document.getElementById("confidence").innerHTML = `Confidence: ${res.confidence}`;
+            document.getElementById("irony").innerHTML = `Irony: ${res.irony}`;
         })
     } else {
         alert('Please enter a valid URL');
