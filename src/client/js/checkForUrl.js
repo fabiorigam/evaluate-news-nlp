@@ -1,10 +1,10 @@
-function checkForUrl(url) {
-    let regex = url.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g)
+function checkForUrl(inputURL) {
+    let regex = inputURL.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
 
-    if (regex == null){
-        return false
+    if(regex == null){
+        return 0;
     } else{
-        return true
+        return 1;
     }
 }
 
